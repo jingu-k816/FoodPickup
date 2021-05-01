@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/login.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+<body>
+  <header>
+  <%- include('partials/_header') %>
+  </header>
+  <div class="login">
+    <h2 class="login_header">Login</h2>
+    <form action="/login" method="POST" class="text_area">
+      <div>
+        <lable>Phone Number:</lable>
+        <input name="email" placeholder="Input your phone number">
+        <lable for="password">Enter Password:</lable>
+        <input class="form-control" type="password" name="password" placeholder="Input your password">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
