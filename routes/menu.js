@@ -3,7 +3,8 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM food_items;`)
+    db.query(`SELECT * FROM food_items
+    ORDER BY category_id;`)
       .then(data => {
         const foods = data.rows;
         console.log(foods)
