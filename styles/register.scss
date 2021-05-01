@@ -1,0 +1,42 @@
+body{
+  background-color: lightblue;
+}
+.register {
+  display: flex;
+  background-color: blanchedalmond;
+  justify-content: center;
+  margin: 100px;
+  height: 400px;
+}
+.login_header {
+  margin: 10px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.input_area{
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.name {
+  margin-left:82px;
+  width: 200px;
+}
+.number {
+  width: 200px;
+  margin-left: 16px;
+}
+.password {
+  width: 200px;
+
+}
+div {
+  margin: 5px;
+}
+lable {
+  margin: 10px;
+}
+input {
+  margin: 10px;
+}
