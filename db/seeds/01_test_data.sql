@@ -12,12 +12,11 @@ INSERT INTO users (name, phone_number, password) VALUES ('Brooklynn Perez', 9999
 ('Nylah Hall', 332553121, 'password'),
 ('Hayley Sanders', 113745121, 'password'),
 ('Sawyer Shepard', 342645443, 'password'),
-('Elise Fowler', 118745443, 'password'),
 ('Elise Fowler', 118745443, 'password');
 
 INSERT INTO categories (name) VALUES('sides');
-INSERT INTO categories (name) VALUES('pizza');
-INSERT INTO categories (name) VALUES('most popular');
+INSERT INTO categories (name) VALUES('standard pizza');
+INSERT INTO categories (name) VALUES('signature pizza');
 INSERT INTO categories (name) VALUES('drink');
 INSERT INTO categories (name) VALUES('dessert');
 
