@@ -19,7 +19,7 @@ name VARCHAR(255) NOT NULL
 
 CREATE TABLE food_items (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255)
+  name VARCHAR(255) NOT NULL,
   photo_url VARCHAR(255) NOT NULL,
   price DECIMAL(4,2) NOT NULL,
   description TEXT NOT NULL,
