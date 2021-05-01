@@ -5,7 +5,7 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/index.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -14,7 +14,14 @@
   <body>
 
     <%- include('partials/_header') %>
-    <h1>Team dreamTeam!</h1>
-
+    <header class = "background_img" >
+      <h2>Food Pickup</h2>
+    </header>
+    <div class = "menu-items">
+      <% for (let i = 0; i < foods.length ; i++ ) { %>
+     <img class = "menu-imgs" src ="<%= foods[i]['url'] %>"/>
+     <span class = "caption"><%= foods[i]['name']%></span>
+     <%}%>
+    </div>
   </body>
 </html>
