@@ -15,12 +15,19 @@
      3px 3px 0 #000;
 }
 .menu-items {
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
 .menu-imgs {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100px;
   width: 200px;
+}
+.caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
