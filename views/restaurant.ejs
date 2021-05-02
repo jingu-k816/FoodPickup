@@ -22,16 +22,31 @@
           <tr>
             <th scope="col">Order#</th>
             <th scope="col">Name</th>
-            <th class="orderStat" scope="col">Order status</th>
+            <th class="orderStatCol"scope="col">Order status</th>
           </tr>
         </thead>
 
-        <% for(const order of orders) { %>
+        <% for (const order of orders) { %>
         <tbody>
           <tr>
-              <th scope="row"><%= order.id %></th>
-              <td><%= order.name %></td>
-              <td><button type="submit">Accept</button></td>
+            <% if (!order.is_picked_up) { %>
+                <th scope="row"><%= order.id %></th>
+                <td><%= order.name %></td>
+              <% if (!order.is_accepted){ %>
+                <td class="orderStatusButtons">
+                  <input class="form-control" type="number" placeholder="How long?(in minutes)">
+                  <button type="submit">Accept</button>
+                </td>
+              <% } else if (!order.is_completed && order.is_accepted) { %>
+                <td class="orderStatusButtons">
+                  <button type="submit">Complete</button>
+                </td>
+              <% } else if (!order.is_picked_up) { %>
+                <td class="orderStatusButtons">
+                  <button type="submit">Picked Up</button>
+                </td>
+              <% } %>
+            <% } %>
           </tbody>
         <% } %>
       </table>

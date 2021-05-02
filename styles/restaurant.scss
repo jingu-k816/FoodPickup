@@ -13,6 +13,17 @@ body .mainRestaurant {
   color: white;
 }
 
-.mainRestaurant .orderStat {
+.mainRestaurant .orderStatCol {
   width: 200px;
+}
+
+.orderStatusButtons {
+  display:flex;
+  flex-direction: row;
+}
+
+.form-control {
+  margin-right: 15px;
+  width: 200px;
+  height: 30px;
 }
