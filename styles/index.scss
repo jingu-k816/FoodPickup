@@ -37,3 +37,46 @@ header {
 header:hover .overlay {
   opacity: 1;
 }
+
+.menu-imgs {
+  height: 200px;
+  width: 200px;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5% 5% ;
+}
+
+.item-name {
+  font-size: larger;
+  font-weight: bold;
+}
+.item-text {
+  text-transform: capitalize;
+  margin: 1% 1%;
+}
+
+.item-img {
+  margin: 1% 1%;
+  object-fit: cover;
+  border-radius: 25px;
+  height: 150px;
+  width: 200px;
+}
+
+.menu-container{
+  margin: 2% 2%;
+  border: 5px dotted black;
+  border-radius: 25px;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.menu-container:hover {
+  box-shadow: 5px 5px lightslategray
+}

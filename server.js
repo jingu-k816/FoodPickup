@@ -42,7 +42,7 @@ const historyRoutes = require("./routes/history");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: mount other resources here, using the same pattern above
-app.use("/", menuRoutes(db));
+app.use("/foods", menuRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/restaurant", restaurantRoutes(db));
