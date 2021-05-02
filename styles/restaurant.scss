@@ -1,0 +1,18 @@
+body .mainRestaurant {
+  background-color: #878787;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 80%;
+  height: 700px;
+  margin: 200px auto;
+}
+
+.thead-dark {
+  background-color: #212529;
+  color: white;
+}
+
+.mainRestaurant .orderStat {
+  width: 200px;
+}

@@ -1,12 +1,16 @@
+const { json } = require('body-parser');
 const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM orders;`)
+    db.query(`
+    SELECT users.name, orders.id
+    FROM orders
+    JOIN users ON user_id = users.id;`)
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        const orders = data.rows;
+        res.render("restaurant",{orders});
       })
       .catch(err => {
         res
