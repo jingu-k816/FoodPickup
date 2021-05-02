@@ -9,7 +9,7 @@ module.exports = (db) => {
     ORDER BY category_id;`)
       .then(data => {
         const foods = data.rows;
-        res.json({foods});
+        res.json(foods);
       })
       .catch(err => {
         res

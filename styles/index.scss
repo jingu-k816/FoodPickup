@@ -38,17 +38,6 @@ header:hover .overlay {
   opacity: 1;
 }
 
-.menu-imgs {
-  height: 200px;
-  width: 200px;
-}
-
-.menu-items {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 5% 5% ;
-}
 
 .item-name {
   font-size: larger;
@@ -68,7 +57,7 @@ header:hover .overlay {
 }
 
 .menu-container{
-  margin: 2% 2%;
+  margin-top: 2%;
   border: 5px dotted black;
   border-radius: 25px;
   width: 400px;
@@ -79,4 +68,11 @@ header:hover .overlay {
 
 .menu-container:hover {
   box-shadow: 5px 5px lightslategray
+}
+
+.all-category-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
