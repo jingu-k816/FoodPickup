@@ -38,11 +38,13 @@ const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const restaurantRoutes = require("./routes/restaurant");
 const historyRoutes = require("./routes/history");
+const categoryRoutes = require("./routes/category")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: mount other resources here, using the same pattern above
 app.use("/foods", menuRoutes(db));
+app.use("/categories", categoryRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/restaurant", restaurantRoutes(db));

@@ -19,7 +19,8 @@ const createMenuItem = function(foodObj) {
 const renderMenuItems = function(items) {
   for (let item of items) {
     $('.all-category-items').prepend(createMenuItem(item))
-  }
+
+}
 }
 
 $(document).ready(function() {
