@@ -16,10 +16,24 @@ const createMenuItem = function(foodObj) {
     return menuItem
 }
 
+
 const renderMenuItems = function(items) {
   for (let item of items) {
-    $('.all-category-items').prepend(createMenuItem(item))
-
+    if (item.category === 'standard pizza'){
+    $('#all-std-items').prepend(createMenuItem(item))
+    }
+    if (item.category === 'signature pizza'){
+    $('#all-sig-items').prepend(createMenuItem(item))
+    }
+    if (item.category === 'sides'){
+    $('#all-side-items').prepend(createMenuItem(item))
+    }
+    if (item.category === 'drink'){
+    $('#all-drink-items').prepend(createMenuItem(item))
+    }
+    if (item.category === 'dessert'){
+    $('#all-dessert-items').prepend(createMenuItem(item))
+    }
 }
 }
 
