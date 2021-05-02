@@ -1,37 +1,39 @@
-.background_img {
-  height: 410px;
-  width: 720px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center ;
-  background-image: url("https://c4.wallpaperflare.com/wallpaper/234/543/684/food-pizza-wallpaper-preview.jpg");
-  color: rgb(255, 255, 255);
-  font-size: xx-large;
-  text-shadow:
-   -3px -3px 0 #000,
-    3px -3px 0 #000,
-    -3px 3px 0 #000,
-     3px 3px 0 #000;
+header {
+  background: rgb(0, 0, 0);
+  overflow: hidden;
 }
-.menu-items {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+.img-fluid {
+  object-fit: cover;
+  width: 100%;
+  max-height: 70vh;
+  opacity: 0.5;
 }
-.menu-imgs {
-  display: flex;
-  flex-direction: column;
-  height: 100px;
-  width: 200px;
+
+.header-text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
-.caption {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70vh;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #000000;
 }
-body {
-  background-color: aqua;
+
+header:hover .overlay {
+  opacity: 1;
 }
