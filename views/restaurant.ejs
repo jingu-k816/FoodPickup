@@ -35,11 +35,11 @@
 
               <% if (!order.is_accepted){ %>
                 <td class="orderStatus">
-                <form method="POST" action="/restaurant">
-                  <input type="hidden" name="OrderId" value="<%= order.id %>"/>
-                  <input type="hidden" name="status" value="incomplete"/>
-                  <input class="form-control" type="number" placeholder="How long?(in minutes)">
-                  <button id="acceptButton" type="submit">Accept</button>
+                <form id="acceptButton" method="POST" action="/restaurant/<%= order.id %>">
+                  <!-- <input type="hidden" name="OrderId" value="<%= order.id %>"/>
+                  <input type="hidden" name="status" value="incomplete"/> -->
+                  <input class="form-control" type="number" name="processTime" placeholder="How long?(in minutes)">
+                  <button form="acceptButton" type="submit">Accept</button>
                 </form>
                 </td>
               <% } else if (!order.is_completed && order.is_accepted) { %>

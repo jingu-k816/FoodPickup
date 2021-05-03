@@ -1,6 +1,11 @@
+require('dotenv').config();
+
 const { json } = require('body-parser');
 const express = require('express');
 const router  = express.Router();
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -20,16 +25,32 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/accept/:order_id", (req, res) => {
+    const orderId = req.params.order_id;
+
+  });
+
+
   router.post("/", (req, res) => {
     let queryUpdate = `
     UPDATE orders
     SET is_accepted = true
    `
     const queryParam = [req.body.OrderId];
+    console.log("REQ.BODY IS: ", req.body);
+    if (req.body.status === "incomplete") {
+      const processingTime = req.body.processTime;
+      client.messages
+      .create({body: `Hi there! Your food will be ready in ${processingTime} minutes.`, from: '+18478921526', to: '+16472954679'})
+      .then(message => console.log(message.sid));
+    }
 
     if (req.body.status === "complete"){
       console.log("Complete button is clicked");
       queryUpdate += ', is_completed = true '
+      client.messages
+      .create({body: 'Hi there Your food is ready Please come and pick it up!', from: '+18478921526', to: '+16472954679'})
+      .then(message => console.log(message.sid));
     }
 
     if (req.body.status === "pickedUp") {
