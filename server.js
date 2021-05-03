@@ -9,6 +9,12 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieSession = require('cookie-session');
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}))
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -36,7 +42,7 @@ app.use(express.static("public"));
 const menuRoutes = require("./routes/menu");
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
-const restaurantRoutes = require("./routes/restaurant");
+const restaurantRoutes = require("./routes/orders");
 const historyRoutes = require("./routes/history");
 const categoryRoutes = require("./routes/category")
 
@@ -47,7 +53,7 @@ app.use("/foods", menuRoutes(db));
 app.use("/categories", categoryRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/register", registerRoutes(db));
-app.use("/restaurant", restaurantRoutes(db));
+app.use("/orders", restaurantRoutes(db));
 app.use("/history", historyRoutes(db));
 
 

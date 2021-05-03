@@ -37,8 +37,30 @@ const renderMenuItems = function(items) {
 }
 }
 
+
 $(document).ready(function() {
   $.get("/foods", function(foods){
     renderMenuItems(foods)
   })
+  const target = $('.toc')
+  target.after('<div class="affix" id="affix"></div>')
+
+  const affix = $('.affix')
+  affix.append(target.clone(true))
+
+  // Show affix on scroll.
+  const element = document.getElementById('affix')
+  if (element !== null) {
+    const position = target.position()
+    window.addEventListener('scroll', function () {
+      const height = $(window).scrollTop()
+      if (height > position.top - 120) {
+        target.css('visibility', 'hidden')
+        affix.css('display', 'block')
+      } else {
+        affix.css('display', 'none')
+        target.css('visibility', 'visible')
+      }
+    })
+  }
 })
