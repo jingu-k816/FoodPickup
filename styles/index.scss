@@ -35,7 +35,7 @@ header {
 }
 
 header:hover .overlay {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 
@@ -87,6 +87,8 @@ header:hover .overlay {
 .menu {
   display: flex;
   flex-direction: column;
+  margin-left: 12em;
+
 }
 .page {
   display: flex;
@@ -94,12 +96,27 @@ header:hover .overlay {
 }
 
 .toc {
-  border: 3px dotted black;
+  // border: 3px dotted black;
   margin-top: 1%;
   margin-left: 2%;
   margin-right: 2%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  top: 75vh;
   height: 200px;
+  width:100px;
+  // z-index: 1;
+  // position: fixed;
+  // background-color: green;
+}
+
+
+.affix {
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  display: none;
 }
