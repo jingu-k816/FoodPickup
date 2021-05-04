@@ -7,9 +7,10 @@ module.exports = (db) => {
     FROM food_items JOIN categories on categories.id = category_id
     ORDER BY category_id;`)
       .then(data => {
-        const foods = data.rows;
+        const foods = data.rows
         res.json(foods);
       })
+
       .catch(err => {
         res
           .status(500)

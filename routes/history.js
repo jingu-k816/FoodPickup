@@ -6,7 +6,8 @@ module.exports = (db) => {
     db.query(`SELECT * FROM orders;`)
       .then(data => {
         const users = data.rows;
-        res.json({ users });
+        const username = req.session.userName;
+        res.render("history", { users, username });
       })
       .catch(err => {
         res

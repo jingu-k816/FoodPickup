@@ -15,8 +15,10 @@ module.exports = (db) => {
     JOIN users ON user_id = users.id
     ORDER BY orders.id;`)
       .then(data => {
-        const orders = data.rows;
-        res.render("orders",{orders});
+        const users = data.rows;
+        console.log("WHAT IS USERS IN ORDERS.JS", users);
+        const username = "Nylah Hall"
+          res.render("orders",{users, username});
       })
       .catch(err => {
         res

@@ -6,7 +6,8 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
-        res.render("register", { users });
+        const username = "";
+        res.render("register", { users, username });
       })
       .catch(err => {
         res

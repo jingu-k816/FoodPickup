@@ -29,7 +29,8 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users;`)
       .then((data) => {
         const users = data.rows;
-        res.render("login", { users });
+        let username = "";
+        res.render("login", { users, username});
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -41,9 +42,12 @@ module.exports = (db) => {
     login(phone_number, password)
       .then(user => {
         if (user) {
-          req.session.userId = user.id;
-          res.locals.users = user.id;
-          res.redirect("/")
+          req.session.userName = user.name;
+          if (user.name === "Nylah Hall"){
+            res.redirect("/orders");
+          }else{
+            res.redirect("/")
+          }
         } else {
           res.send({error: "error"});
           return;

@@ -46,10 +46,12 @@ const restaurantRoutes = require("./routes/orders");
 const historyRoutes = require("./routes/history");
 const categoryRoutes = require("./routes/category")
 const logOutRoutes = require("./routes/logout")
+const userRoutes = require("./routes/users")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: mount other resources here, using the same pattern above
+// app.use("/",menuRoutes(db)); // ---------
 app.use("/foods", menuRoutes(db));
 app.use("/categories", categoryRoutes(db));
 app.use("/login", loginRoutes(db));
@@ -57,8 +59,13 @@ app.use("/register", registerRoutes(db));
 app.use("/orders", restaurantRoutes(db));
 app.use("/history", historyRoutes(db));
 app.use("/logout", logOutRoutes(db));
+app.use("/users", userRoutes(db));
 app.use(function(req, res, next) {
-  res.locals.users = req.session.userId;
+  if(req.session.userName){
+    res.locals.users = req.session.userName;
+  } else{
+    res.locals.users = "";
+  }
   next();
 });
 
@@ -66,16 +73,19 @@ app.use(function(req, res, next) {
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  db.query(`SELECT * FROM users;`)
+    .then(data => {
+      const users = data.rows;
+      let username = res.locals.users;
+      res.render("index", {users, username})
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
-app.get("/test", (req, res) => {
-  if(req.session["userId"]) {
-    console.log("SESSION IS STILL HERE");
-  } else{
-    console.log("SESSION IS NOT HERE");
-  }
-  return;
-})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/styles/index.css" type="text/css" />
   <link rel="stylesheet" href="/styles/history.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -25,15 +26,8 @@
     <%- include('partials/_navbar') %>
   </header>
   <div class="whole-page">
-    <div class="pic-area">
-      <img class="img-fluid" src="https://images6.alphacoders.com/609/thumb-1920-609345.jpg">
-      <div class='overlay'>
-        <div class="header-text">
-          <h1>Food Pickup</h1>
-          <h2>Best food pick up service in the world</h2>
-        </div>
-      </div>
-    </div>
+    <%- include('partials/_header') %>
+
     <h2 class="order-title">Order History</h2>
     <div class="history-body">
       <div class="individual-order">

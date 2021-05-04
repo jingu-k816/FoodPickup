@@ -1,9 +1,8 @@
 <nav>
-  <span>Pizza Heaven</span>
-    <% if (!users) { %>
+  <span>Pizza Tent</span>
+    <% if (!username) { %>
       <%- include('./_navbarLoggedOut') %>
     <% } else {%>
-      <% console.log("HELLO THIS IS USERS", users) %>
       <%- include('./_navbarLogin') %>
     <% } %>
 </nav>
