@@ -45,6 +45,7 @@ const registerRoutes = require("./routes/register");
 const restaurantRoutes = require("./routes/orders");
 const historyRoutes = require("./routes/history");
 const categoryRoutes = require("./routes/category")
+const logOutRoutes = require("./routes/logout")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -55,7 +56,11 @@ app.use("/login", loginRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/orders", restaurantRoutes(db));
 app.use("/history", historyRoutes(db));
-
+app.use("/logout", logOutRoutes(db));
+app.use(function(req, res, next) {
+  res.locals.users = req.session.userId;
+  next();
+});
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -63,7 +68,14 @@ app.use("/history", historyRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-
+app.get("/test", (req, res) => {
+  if(req.session["userId"]) {
+    console.log("SESSION IS STILL HERE");
+  } else{
+    console.log("SESSION IS NOT HERE");
+  }
+  return;
+})
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

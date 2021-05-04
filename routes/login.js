@@ -42,6 +42,7 @@ module.exports = (db) => {
       .then(user => {
         if (user) {
           req.session.userId = user.id;
+          res.locals.users = user.id;
           res.redirect("/")
         } else {
           res.send({error: "error"});
