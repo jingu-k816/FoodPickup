@@ -42,6 +42,12 @@ $(document).ready(function() {
   $.get("/foods", function(foods){
     renderMenuItems(foods)
   })
+
+  $("#search_form").click(function(){
+    const query = document.getElementById('search').value;
+    window.find(query);
+    return true;
+})
   const target = $('.toc')
   target.after('<div class="affix" id="affix"></div>')
 
