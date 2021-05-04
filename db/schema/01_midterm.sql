@@ -22,7 +22,6 @@ CREATE TABLE food_items (
   name VARCHAR(255) NOT NULL,
   photo_url VARCHAR(255) NOT NULL,
   price DECIMAL(4,2) NOT NULL,
-  description TEXT NOT NULL,
   ingredients TEXT NOT NULL,
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE
 );
