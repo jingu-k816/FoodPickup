@@ -19,6 +19,12 @@ nav .navLinks a{
  color: white;
  text-decoration: none;
 }
+nav .navLeft {
+  justify-content: space-between;
+}
+nav .navLoggedIn {
+  align-items: flex-end;
+}
 
 nav .navLoggedIn a{
 color: white;
@@ -60,12 +66,15 @@ nav .navLoggedIn a:focus {
 .main-color-text {
   color: #6394F8;
 }
-
-.container {
-  margin-top: 500px;
-  width: 80%;
-  display:none;
+main {
+  margin-top: 100px;
 }
+// .container {
+//   display: none;
+//   overflow: hidden;
+//   width: 80%;
+//   margin-top: 800px;
+// }
 
 .badge {
   background-color: #6394F8;
@@ -88,6 +97,9 @@ nav .navLoggedIn a:focus {
   position: relative;
   border-radius: 3px;
   padding: 20px;
+  display: none;
+  overflow: hidden;
+  margin-top: 100px;
 }
 .shopping-cart .shopping-cart-header {
   border-bottom: 1px solid #E8E8E8;
@@ -154,9 +166,18 @@ nav .navLoggedIn a:focus {
 .button:hover {
   background: #729ef9;
 }
-
+.clearfix img{
+  width: 50px;
+  height: 50px;
+}
 .clearfix:after {
   content: "";
   display: table;
   clear: both;
+
+}
+
+.item-remove {
+  border: none;
+  background-color: transparent;
 }

@@ -1,8 +1,11 @@
 <nav>
-  <span>Pizza Tent</span>
+  <div class="navLeft">
+    <span>Pizza Tent</span>
+  </div>
     <% if (!username) { %>
       <%- include('./_navbarLoggedOut') %>
-    <% } else {%>
-      <%- include('./_navbarLogin') %>
-    <% } %>
 </nav>
+      <% } else {%>
+        <%- include('./_navbarLogin') %>
+        <% } %>
+

@@ -32,6 +32,7 @@ header {
   opacity: 0;
   transition: .5s ease;
   background-color: #000000;
+  display: none;
 }
 
 header:hover .overlay {
