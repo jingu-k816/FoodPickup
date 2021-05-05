@@ -152,7 +152,7 @@ main {
   float: left;
 }
 
-.button {
+.checkout-button {
   background: #6394F8;
   color: white;
   text-align: center;
@@ -162,8 +162,10 @@ main {
   border-radius: 3px;
   font-size: 16px;
   margin: 25px 0 15px 0;
+  width: 100%;
+  border: none;
 }
-.button:hover {
+.checkout-button:hover {
   background: #729ef9;
 }
 .clearfix img{
@@ -180,4 +182,8 @@ main {
 .item-remove {
   border: none;
   background-color: transparent;
+}
+
+.changeToRed {
+  background-color: red;
 }

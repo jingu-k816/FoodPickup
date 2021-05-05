@@ -28,7 +28,9 @@ db.connect();
 app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+//app.use(express.json());
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
@@ -63,8 +65,10 @@ app.use("/users", userRoutes(db));
 app.use(function(req, res, next) {
   if(req.session.userName){
     res.locals.users = req.session.userName;
+    res.locals.userId = req.session.userId;
   } else{
     res.locals.users = "";
+    res.locals.userId = "";
   }
   next();
 });
@@ -77,7 +81,8 @@ app.get("/", (req, res) => {
     .then(data => {
       const users = data.rows;
       let username = res.locals.users;
-      res.render("index", {users, username})
+      let userId = res.locals.userId;
+      res.render("index", {users, username, userId})
     })
     .catch(err => {
       res

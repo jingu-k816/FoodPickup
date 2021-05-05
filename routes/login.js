@@ -43,6 +43,7 @@ module.exports = (db) => {
       .then(user => {
         if (user) {
           req.session.userName = user.name;
+          req.session.userId = user.id;
           if (user.name === "Nylah Hall"){
             res.redirect("/orders");
           }else{
