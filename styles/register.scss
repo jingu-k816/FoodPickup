@@ -1,10 +1,16 @@
 body{
-  background-color: lightblue;
+  background-color: black;
+  background-image: url("/menu_photos/background.png");
+  background-size: cover;
 }
 .register {
   display: flex;
-  background-color: blanchedalmond;
+  flex-direction: column;
+  background-color:#bfbfbf;
+  opacity: 0.5;
+  border-radius: 10px;
   justify-content: center;
+  align-items: center;
   margin: 100px;
   height: 400px;
 }
@@ -17,18 +23,21 @@ body{
 .input_area{
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+}
+.input-form {
+  height: 20vw;
 }
 .name {
-  margin-left:82px;
+  margin-left:5.1em;
   width: 200px;
 }
 .number {
   width: 200px;
-  margin-left: 16px;
+  margin-left: 1em;
 }
 .password {
   width: 200px;
+  margin-left: 3.3em;
 
 }
 div {
