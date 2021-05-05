@@ -13,7 +13,7 @@ const createMenuItem = function(foodObj) {
         </div>
     </article>`)
 
-    return menuItem
+    return menuItem;
 }
 
 
@@ -34,13 +34,57 @@ const renderMenuItems = function(items) {
     if (item.category === 'dessert'){
     $('#all-dessert-items').prepend(createMenuItem(item))
     }
-}
+  }
+  let navIndex = 1;
+  let shoppingCartIndex = 1;
+  let initialPrice = 0;
+    $(".menu-container").click(function () {
+      console.log("Menu container triggered");
+      const cartNumber = $(this).parent().parent().parent().parent().parent().find('.cart-badge');
+      const navCartNumber = $(this).parent().parent().parent().parent().parent().find('.badge');
+      navCartNumber.text(navIndex++);
+      cartNumber.text(shoppingCartIndex++);
+
+      const image = $(this).children(".item-img").attr('src');
+      const name = $(this).children().children()[0].innerText;
+      const price = $(this).children().children()[1].innerText;
+      const menuItem = $(`
+      <li class="clearfix">
+        <img src="${image}" alt="item1" />
+        <span class="item-name">${name}</span>
+        <span class="item-price">$${price}</span>
+        <button class="item-remove-${navIndex}" type="click"> <i class="far fa-trash-alt"></i> </button>
+      </li>
+      `);
+
+      $('.shopping-cart-items').prepend(menuItem);
+
+      const totalPrice = $(this).parent().parent().parent().parent().parent().find(".main-color-text");
+      const priceToDecimal = parseFloat(price);
+
+      totalPrice.text(initialPrice+=priceToDecimal);
+
+      $(`.item-remove-${navIndex}`).click(function() {
+        console.log("item remove triggered from line 68");
+        const totalPrice = parseFloat($("#total-price")[0].innerText);
+        console.log("WHAT IS TOTAL PRICE", {totalPrice, price});
+        $("#total-price")[0].innerText = totalPrice - price;
+        navCartNumber.text(navIndex--);
+        cartNumber.text(shoppingCartIndex--);
+        $(this).parent().remove();
+      })
+
+    })
 }
 
 
 $(document).ready(function() {
   $.get("/foods", function(foods){
-    renderMenuItems(foods)
+    renderMenuItems(foods);
+  })
+
+  $(".item-remove").click(function() {
+    console.log("this gets triggered from line 76");
   })
 
   $("#search_form").click(function(){
