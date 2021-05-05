@@ -17,18 +17,27 @@ const createQuantityList = function(itemsArr) {
 const createPriceList = function(itemsArr) {
   let itemList = '<ul>'
   for(const item of itemsArr) {
-    itemList += ` <li>${item.price}</li>`
+    itemList += ` <li>$${item.price}</li>`
   }
   return itemList += '</ul>'
 }
 
+const totalPriceCalc = function(itemsArr) {
+  let totalPrice = 0
+  for(const item of itemsArr) {
+    totalPrice += Number(item.price)
+  }
+  return totalPrice
+}
+
 const createHistoryItem = function(historyObj) {
   const order_id = historyObj.order_id
+  const totalPrice = totalPriceCalc(historyObj.items)
   const orderList = `<div class="individual-order">
   <div class="order-info">
-    <span>${order_id}</span>
+    <span>Order ID: ${order_id}</span>
     <div class=order-right>
-      <span>total price</span>
+      <span>Total Price: $${totalPrice}</span>
       <span>date</span>
     </div>
   </div>
