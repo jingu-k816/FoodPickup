@@ -31,7 +31,8 @@ CREATE TABLE orders (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   is_accepted BOOLEAN NOT NULL DEFAULT false,
   is_completed BOOLEAN NOT NULL DEFAULT false,
-  is_picked_up BOOLEAN NOT NULL DEFAULT false
+  is_picked_up BOOLEAN NOT NULL DEFAULT false,
+  date DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
 CREATE TABLE order_items (
