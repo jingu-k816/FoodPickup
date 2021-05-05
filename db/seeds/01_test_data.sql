@@ -46,16 +46,16 @@ INSERT INTO food_items (name, photo_url, price, ingredients, category_id) VALUES
 ('rasberry ice', '/menu_photos/dessert/rasberry_ice.png', 02.50, 'call for alergen information', 5 ),
 ('tripple chocolate cookie dough', '/menu_photos/dessert/tripple_chocolate_cookie_dough.png', 03.50, 'call for alergen information', 5 );
 
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(1, true, false, false);
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(2, true, true, false);
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(3, true, true, true);
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(4, false, false, false);
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(1, false, false, false);
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(1, true, true, false);
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(7, true, true, false);
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(8, true, true, true);
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(9, true, false, false);
-INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up) VALUES(10, true, true, true);
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(1, true, false, false, '2020-09-20');
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(2, true, true, false, '2020-10-15');
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(3, true, true, true, '2020-10-17');
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(4, false, false, false, '2020-11-16');
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(1, false, false, false, '2020-11-20');
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(1, true, true, false, '2020-12-8');
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(7, true, true, false, '2021-02-1');
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(8, true, true, true, '2021-04-16');
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(9, true, false, false, current_date);
+INSERT INTO orders (user_id, is_accepted, is_completed, is_picked_up, date) VALUES(10, true, true, true, current_date);
 
 INSERT INTO order_items (food_item_id, quantity, order_id) VALUES(1, 2, 1);
 INSERT INTO order_items (food_item_id, quantity, order_id) VALUES(2, 1, 1);

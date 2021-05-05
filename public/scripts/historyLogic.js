@@ -25,7 +25,7 @@ const createPriceList = function(itemsArr) {
 const totalPriceCalc = function(itemsArr) {
   let totalPrice = 0
   for(const item of itemsArr) {
-    totalPrice += Number(item.price)
+    totalPrice += Number(item.price) * Number(item.quantity)
   }
   return totalPrice
 }
@@ -33,15 +33,16 @@ const totalPriceCalc = function(itemsArr) {
 const createHistoryItem = function(historyObj) {
   const order_id = historyObj.order_id
   const totalPrice = totalPriceCalc(historyObj.items)
+  const date = new Date(historyObj.date)
   const orderList = `<div class="individual-order">
   <div class="order-info">
     <span>Order ID: ${order_id}</span>
     <div class=order-right>
       <span>Total Price: $${totalPrice}</span>
-      <span>date</span>
+      <span>${date.toISOString().split('T')[0]}</span>
     </div>
   </div>
-  <div class="details-container">
+  <div class="hidden details-container">
     <footer class="order-details">
       <span>Items`
    const foodList =  createFoodList(historyObj.items)
@@ -60,6 +61,8 @@ const createHistoryItem = function(historyObj) {
 }
 
 
+
+
 const renderOrderItems = function(items) {
   for (item in items) {
   $(".history-body").prepend(createHistoryItem(items[item]))
@@ -67,26 +70,24 @@ const renderOrderItems = function(items) {
 
 
 
-
-
 $(document).ready(function() {
 
   $.get("/history/reshaped", function(history){
     renderOrderItems(history)
+    $('.individual-order').click(function() {
+      const $container = $(this).find(".details-container");
+      console.log('its clicked')
+      if (!$container.hasClass("hidden")) {
+        $container.slideUp(400, function() {
+        $(this).addClass("hidden");
+        })
+      } else {
+        $container.slideDown(400, function() {
+        $(this).removeClass("hidden");
+       });
+      }
+    });
   })
 
-  $('.individual-order').click(function() {
-    const $container = $(this).find(".details-container");
-    console.log('its clicked')
-    if (!$container.hasClass("hidden")) {
-      $container.slideUp(400, function() {
-      $(this).addClass("hidden");
-      })
-    } else {
-      $container.slideDown(400, function() {
-      $(this).removeClass("hidden");
-     });
-    }
-  });
 
 });

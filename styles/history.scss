@@ -1,5 +1,6 @@
 .whole-page {
-  background-color: #99cfff;
+  background-image: url("/menu_photos/background.png");
+  background-size: cover;
 
   }
   .pic-area {
@@ -22,6 +23,8 @@
     opacity: 0.8;
   }
   .order-title {
+  color: #8c8c8c;
+
     padding: 0.5em;
   }
   .order-info {
@@ -29,21 +32,28 @@
     margin-top: 2vw;
     padding: 0.5em;
     display:flex;
+  border-radius: 5px;
     justify-content: space-between;
-    background-color: #e6f3ff;
+  color: #a6a6a6;
+    background-color: #4d4d4d;
+    opacity: 0.8;
   }
   .order-info:hover {
-    background-color: #b3dbff;
+    background-color: #737373;
   }
   .order-right span{
     margin: 0.2em 1em;
   }
   .order-details {
     padding: 0.5em;
-    background-color: #cce7ff;
+  color: #a6a6a6;
+    background-color: #4d4d4d;
     display: flex;
     justify-content: space-between;
+     border-radius: 5px;
+
     ul {
+
       list-style-type: none;
       display: flex;
       flex-direction: column;
@@ -57,5 +67,7 @@
   }
   .history-body {
   padding: 5vw 10vw;
-  background-color: #99cfff;
+  background-image: url("/menu_photos/background.png");
+  background-position: center;
+  background-position: top;
   }
