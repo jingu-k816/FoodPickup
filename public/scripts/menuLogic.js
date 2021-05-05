@@ -2,14 +2,14 @@ const createMenuItem = function(foodObj) {
   const image = foodObj.photo_url
   const name = foodObj.name
   const price = foodObj.price
-  const desc = foodObj.description
+  const ing = foodObj.ingredients
   const menuItem = $(`<article class = "menu-container">
-      <img class = "item-img" src = "${image}"/>
-        <div class = "item-text">
-          <div class = "item-name">${name}</div>
-          <div class = "price">${price}</div>
-          <div class = "description">Description: ${desc}
-          </div>
+  <div class = "item-text">
+  <div class = "item-name">${name}</div>
+  <div class = "price">$${price}</div>
+  <div class = "Ingredients">Ingredients: ${ing}
+  </div>
+  <img class = "item-img" src = "${image}"/>
         </div>
     </article>`)
 
