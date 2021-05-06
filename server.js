@@ -45,7 +45,6 @@ const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const restaurantRoutes = require("./routes/orders");
 const historyRoutes = require("./routes/history");
-const categoryRoutes = require("./routes/category")
 const logOutRoutes = require("./routes/logout")
 const userRoutes = require("./routes/users")
 
@@ -54,7 +53,6 @@ const userRoutes = require("./routes/users")
 // Note: mount other resources here, using the same pattern above
 // app.use("/",menuRoutes(db)); // ---------
 app.use("/foods", menuRoutes(db));
-app.use("/categories", categoryRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/orders", restaurantRoutes(db));
