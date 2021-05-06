@@ -61,8 +61,6 @@ const createHistoryItem = function(historyObj) {
 }
 
 
-
-
 const renderOrderItems = function(items) {
   for (item in items) {
   $(".history-body").prepend(createHistoryItem(items[item]))
@@ -91,3 +89,5 @@ $(document).ready(function() {
 
 
 });
+
+
