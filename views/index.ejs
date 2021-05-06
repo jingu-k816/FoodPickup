@@ -46,7 +46,9 @@
           </div>
         </div>
         <div class="menu">
-          <a class ="order-history-link" href="/history">Order History</a>
+          <% if (username){%>
+            <a class ="order-history-link" href="/history">View your past orders!</a>
+          <%}%>
           <div class="category" id="stdPizza">Standard Pizzas</div>
           <div class="all-category-items" id="all-std-items"></div>
           <div class="category" id="sigPizza">Signature Pizzas</div>
