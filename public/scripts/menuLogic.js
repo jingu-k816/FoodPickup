@@ -85,13 +85,14 @@ const renderMenuItems = function (items) {
       setTimeout(function () {
         $('.badge').css("background-color", '#6394F8');
       }, 1000);
-    }
+
 
     const totalPrice = $(this).parent().parent().parent().parent().parent().find(".main-color-text");
     const priceToDecimal = parseFloat(price);
 
     totalPrice.text((total += priceToDecimal));
   })
+
 }
 
 
