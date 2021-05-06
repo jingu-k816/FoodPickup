@@ -50,7 +50,7 @@ const createHistoryItem = function(historyObj) {
    <span>Quantity`
    const quantityList = createQuantityList(historyObj.items)
    const span2 = `</span>
-   <span>Price`
+   <span>Price/Each`
    const priceList = createPriceList(historyObj.items)
    const span3 =`</span>
     </footer>

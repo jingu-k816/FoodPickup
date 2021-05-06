@@ -1,13 +1,23 @@
-body .mainRestaurant {
+.page {
+  background-image: url("/menu_photos/background.png");
+  padding-bottom: 10em;
+}
+.mainRestaurant {
   background-color: #878787;
   display: flex;
   align-content: center;
+  align-self: center;
   justify-content: center;
-  width: 80%;
-  height: 700px;
-  margin: 200px auto;
+  width: 80vw;
+  opacity: 0.8;
+  margin-left: 10vw;
+  border-radius: 10px;
 }
+.table {
+  margin: 0;
 
+
+}
 .thead-dark {
   background-color: #212529;
   color: white;
