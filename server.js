@@ -30,7 +30,6 @@ app.use(morgan('dev'));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-//app.use(express.json());
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",

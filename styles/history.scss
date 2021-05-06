@@ -1,78 +1,87 @@
 .whole-page {
   background-image: url("/menu_photos/background.png");
-  }
-  .pic-area {
-    background: rgb(0, 0, 0);
-    overflow: hidden;
-  }
-  .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 70vh;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: #000000;
-  }
-  .overlay:hover {
-    opacity: 0.8;
-  }
-  .order-title {
+}
+
+.pic-area {
+  background: rgb(0, 0, 0);
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70vh;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #000000;
+}
+
+.overlay:hover {
+  opacity: 0.8;
+}
+
+.order-title {
   color: #8c8c8c;
+  padding: 0.5em;
+}
 
-    padding: 0.5em;
-  }
-  .order-info {
-    margin: 1vw;
-    margin-top: 2vw;
-    padding: 0.5em;
-    display:flex;
+.order-info {
+  margin: 1vw;
+  margin-top: 2vw;
+  padding: 0.5em;
+  display: flex;
   border-radius: 5px;
-    justify-content: space-between;
+  justify-content: space-between;
   color: #a6a6a6;
-    background-color: #4d4d4d;
-    opacity: 0.8;
-  }
-  .order-info:hover {
-    background-color: #737373;
-  }
-  .order-right span{
-    margin: 0.2em 1em;
-  }
-  .order-details {
-    padding: 0.5em;
+  background-color: #4d4d4d;
+  opacity: 0.8;
+}
+
+.order-info:hover {
+  background-color: #737373;
+}
+
+.order-right span {
+  margin: 0.2em 1em;
+}
+
+.order-details {
+  padding: 0.5em;
   color: #a6a6a6;
-    background-color: #4d4d4d;
+  background-color: #4d4d4d;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+
+  ul {
+    list-style-type: none;
     display: flex;
-    justify-content: space-between;
-     border-radius: 5px;
-
-    ul {
-
-      list-style-type: none;
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-      margin: 0;
-      margin-top: 0.5em;
-    }
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.5em;
   }
-  .hidden {
-    display: none;
-  }
-  .history-body {
+
+}
+
+.hidden {
+  display: none;
+}
+
+.history-body {
   padding: 5vw 10vw;
   background-image: url("/menu_photos/background.png");
   background-position: center;
   background-position: top;
-  }
+}
 
-  .end-message{
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
+.end-message {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

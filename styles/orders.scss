@@ -1,9 +1,16 @@
-.page {
+.order-page {
   background-image: url("/menu_photos/background.png");
   padding-bottom: 10em;
+  padding-top: 6em;
+  display: flex;
+  justify-content: center;
+}
+
+.orderStatCol {
+  width: 400px;
 }
 .mainRestaurant {
-  background-color: #878787;
+  background-color: transparent;
   display: flex;
   align-content: center;
   align-self: center;
@@ -13,27 +20,39 @@
   margin-left: 10vw;
   border-radius: 10px;
 }
-.table {
-  margin: 0;
-
-
-}
-.thead-dark {
-  background-color: #212529;
-  color: white;
-}
-
-.mainRestaurant .orderStatCol {
-  width: 200px;
-}
 
 .orderStatus {
-  display:flex;
+  display: flex;
   flex-direction: row;
+}
+.order-page thead {
+  border-bottom: 1px solid #bfbfbf;
 }
 
 .form-control {
   margin-right: 15px;
   width: 200px;
-  height: 30px;
+  height: 25px;
+  background-color: transparent;
+  color: white;
+}
+.order-page th {
+  color: #bfbfbf;
+  border: none;
+}
+.order-page td {
+  color: #bfbfbf;
+  border: none;
+}
+
+.order-page .order-button {
+  background-color: #990000;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  margin: 0.5em;
+}
+
+.order-button:hover {
+  transform: scale(1.07);
 }

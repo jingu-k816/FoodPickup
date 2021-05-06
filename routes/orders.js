@@ -16,8 +16,10 @@ module.exports = (db) => {
     ORDER BY orders.id;`)
       .then(data => {
         const users = data.rows;
-        console.log("WHAT IS USERS IN ORDERS.JS", users);
-        const username = "Nylah Hall"
+        const username = req.session.userName;
+        if (username !== "Nylah Hall") {
+          res.redirect("/");
+        }
           res.render("orders",{users, username});
       })
       .catch(err => {
@@ -57,7 +59,6 @@ module.exports = (db) => {
     return result;
     }
     const dataForOrderHistory = reshape(itemsInCart);
-    console.log(dataForOrderHistory);
     db.query(insertQueryToRestaurant, [userId])
     .then(data => {
       let orderId = data.rows[0]["id"];
@@ -70,18 +71,17 @@ module.exports = (db) => {
         .catch(err => console.error(err.message));
       }
 
-      client.messages
-      .create({body: `Hi there! Your order has been submitted! We will send you an update once the order has been accpeted by the restaurant.`, from: '+12343198009', to: '+447782322575'})
-      .then(message => console.log(message.sid));
+      // client.messages
+      // .create({body: `Hi there! Your order has been submitted! We will send you an update once the order has been accpeted by the restaurant.`, from: '+12343198009', to: '+447782322575'})
+      // .then(message => console.log(message.sid));
 
-      client.messages
-      .create({body: `From restaurant`, from: '+12343198009', to: '+447782322575'})
-      .then(message => console.log(message.sid));
+      // client.messages
+      // .create({body: `From restaurant`, from: '+12343198009', to: '+447782322575'})
+      // .then(message => console.log(message.sid));
 
       res.redirect("/");
     })
     .catch(err => {
-      console.log("im in here line 84");
       res
         .status(500)
         .json({ error: err.message });

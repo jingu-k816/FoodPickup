@@ -15,59 +15,20 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/navbarLogic.js"></script>
   <script type="text/javascript" src="/scripts/historyLogic.js"></script>
-
-  <!-- <script type="text/javascript" src="/scripts/menuLogic.js"></script> -->
 </head>
 
 <body>
   <header>
     <%- include('partials/_navbar') %>
-    <%- include('partials/_header') %>
+      <%- include('partials/_header') %>
   </header>
   <div class="whole-page">
 
     <h2 class="order-title">Order History</h2>
     <div class="history-body">
-      <!-- <div class="individual-order">
-        <div class="order-info">
-          <span>order_id</span>
-          <div class=order-right>
-            <span>total price</span>
-            <span>date</span>
-          </div>
-        </div>
-        <div class="hidden details-container">
-          <footer class="order-details">
-            <span>Items
-              <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
-              </ul>
-            </span>
-            <span>Quantity
-              <ul>
-                <li>1</li>
-                <li>3</li>
-                <li>1</li>
-                <li>2</li>
-              </ul>
-            </span>
-            <span>Price/Each
-              <ul>
-                <li>14.99</li>
-                <li>32.99</li>
-                <li>4.99</li>
-                <li>12.99</li>
-              </ul>
-            </span>
-          </footer>
-        </div>
-      </div> -->
-      <h3 class= "end-message">You have no more past orders</h3>
+      <h3 class="end-message">You have no more past orders</h3>
     </div>
   </div>
 </body>

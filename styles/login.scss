@@ -1,20 +1,34 @@
-// See: https://sass-lang.com/
-body{
+$base-color: #990000;
+body {
   background-color: black;
   background-image: url("/menu_photos/background.png");
-  background-size: cover;
 }
-.login{
+.login {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
-  background-color:#bfbfbf;
+  background-color: #bfbfbf;
   opacity: 0.5;
   margin: 10em;
-  height: 200px;
+  height: 40vh;
   border-radius: 10px;
+  div {
+    margin: 1em;
+    .phoneNumber {
+      margin-left: 5px;
+    }
+  }
+  button {
+    background-color: $base-color;
+    color: white;
+    border: none;
+  }
+  button:hover {
+    transform: scale(1.07);
+    background-color: $base-color;
+  }
 }
-.login_header{
+.login_header {
   margin: 10px;
   height: 30px;
   justify-content: center;
@@ -22,8 +36,8 @@ body{
 }
 .text_area {
   margin-top: 2.5em;
-display: flex;
-height: 100px;
-height: 2em;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  height: 2em;
 }
-

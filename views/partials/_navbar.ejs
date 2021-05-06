@@ -2,10 +2,9 @@
   <div class="navLeft">
     <a href="/"><img src="/menu_photos/logo.png" alt="Pizza Tent"></a>
   </div>
-    <% if (!username) { %>
-      <%- include('./_navbarLoggedOut') %>
+  <% if (!username) { %>
+    <%- include('./_navbarLoggedOut') %>
 </nav>
-    <% } else {%>
-        <%- include('./_navbarLogin') %>
-      <% } %>
-
+  <% } else {%>
+    <%- include('./_navbarLogin') %>
+  <% } %>

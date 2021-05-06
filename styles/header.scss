@@ -5,6 +5,7 @@ header {
   z-index: 0;
   max-height: 70vh;
 }
+
 .img-fluid {
   object-fit: cover;
   width: 100%;
@@ -21,6 +22,18 @@ header {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  h4 {
+    margin-bottom: 30px;
+  }
+
+  img {
+    width: 30em;
+  }
+
 }
 
 .overlay {
@@ -32,21 +45,10 @@ header {
   height: 70vh;
   width: 100%;
   opacity: 0;
-  transition: .5s ease;
+  transition: 0.5s ease;
   background-color: #000000;
 }
 
 header:hover .overlay {
   opacity: 0.8;
-}
-
-.header-text h2{
-  margin-bottom: 30px;
-}
-.header-text h4{
-  margin-bottom: 30px;
-}
-
-.header-text img{
-  width: 30em;
 }
