@@ -1,56 +1,56 @@
-const createMenuItem = function(foodObj) {
+const createMenuItem = function (foodObj) {
   const image = foodObj.photo_url
   const name = foodObj.name
   const price = foodObj.price
-  const desc = foodObj.description
+  const ing = foodObj.ingredients
   const foodId = foodObj.id
   const menuItem = $(`<article class = "menu-container" data-id="${foodId}">
-      <img class = "item-img" src = "${image}"/>
-        <div class = "item-text">
-          <div class = "item-name">${name}</div>
-          <div class = "price">${price}</div>
-          <div class = "description">Description: ${desc}
+  <div class = "item-text">
+  <div class = "item-name">${name}</div>
+  <div class = "price">${price}</div>
+  <div class = "description">Ingredients: ${ing}
+  <img class = "item-img" src = "${image}"/>
           </div>
         </div>
     </article>`)
-    return menuItem;
+  return menuItem;
 }
 
-const renderMenuItems = function(items) {
+const renderMenuItems = function (items) {
   for (let item of items) {
-    if (item.category === 'standard pizza'){
-    $('#all-std-items').prepend(createMenuItem(item))
+    if (item.category === 'standard pizza') {
+      $('#all-std-items').prepend(createMenuItem(item))
     }
-    if (item.category === 'signature pizza'){
-    $('#all-sig-items').prepend(createMenuItem(item))
+    if (item.category === 'signature pizza') {
+      $('#all-sig-items').prepend(createMenuItem(item))
     }
-    if (item.category === 'sides'){
-    $('#all-side-items').prepend(createMenuItem(item))
+    if (item.category === 'sides') {
+      $('#all-side-items').prepend(createMenuItem(item))
     }
-    if (item.category === 'drink'){
-    $('#all-drink-items').prepend(createMenuItem(item))
+    if (item.category === 'drink') {
+      $('#all-drink-items').prepend(createMenuItem(item))
     }
-    if (item.category === 'dessert'){
-    $('#all-dessert-items').prepend(createMenuItem(item))
+    if (item.category === 'dessert') {
+      $('#all-dessert-items').prepend(createMenuItem(item))
     }
   }
 
   let navIndex = 0;
   let numItems = 0;
   let total = 0;
-    $(".menu-container").click(function () {
-      numItems += 1;
-      navIndex += 1;
-      const cartNumber = $(this).parent().parent().parent().parent().parent().find('.cart-badge');
-      const navCartNumber = $(this).parent().parent().parent().parent().parent().find('.badge');
-      navCartNumber.text(navIndex);
-      cartNumber.text(numItems);
+  $(".menu-container").click(function () {
+    numItems += 1;
+    navIndex += 1;
+    const cartNumber = $(this).parent().parent().parent().parent().parent().find('.cart-badge');
+    const navCartNumber = $(this).parent().parent().parent().parent().parent().find('.badge');
+    navCartNumber.text(navIndex);
+    cartNumber.text(numItems);
 
-      const image = $(this).children(".item-img").attr('src');
-      const name = $(this).children().children()[0].innerText;
-      const price = $(this).children().children()[1].innerText;
-      const foodId = this.getAttribute('data-id');
-      const menuItem = $(`
+    const image = $(this).children(".item-img").attr('src');
+    const name = $(this).children().children()[0].innerText;
+    const price = $(this).children().children()[1].innerText;
+    const foodId = this.getAttribute('data-id');
+    const menuItem = $(`
       <li class="clearfix" data-id="${foodId}">
         <input type="hidden" name="price" value="${price}">
         <input type="hidden" name="foodId" value="${foodId}">
@@ -61,44 +61,44 @@ const renderMenuItems = function(items) {
       </li>
       `);
 
-      $(menuItem.children()[5]).click(function() {
-        numItems -=1;
-        navIndex--;
-        total -= price;
-        $("#total-price")[0].innerText = total;
-        navCartNumber.text(navIndex);
-        cartNumber.text(numItems);
-        $(this).parent().remove();
-      })
+    $(menuItem.children()[5]).click(function () {
+      numItems -= 1;
+      navIndex--;
+      total -= price;
+      $("#total-price")[0].innerText = total;
+      navCartNumber.text(navIndex);
+      cartNumber.text(numItems);
+      $(this).parent().remove();
+    })
 
-      $('.shopping-cart-items').prepend(menuItem);
-      if (cartNumber.val() !== 0){
-        $('.badge').css("background-color", 'red');
+    $('.shopping-cart-items').prepend(menuItem);
+    if (cartNumber.val() !== 0) {
+      $('.badge').css("background-color", 'red');
 
-        setTimeout(function() {
-          $('.badge').css("background-color", '#6394F8');
-        }, 1000);
-      }
+      setTimeout(function () {
+        $('.badge').css("background-color", '#6394F8');
+      }, 1000);
+    }
 
-      const totalPrice = $(this).parent().parent().parent().parent().parent().find(".main-color-text");
-      const priceToDecimal = parseFloat(price);
+    const totalPrice = $(this).parent().parent().parent().parent().parent().find(".main-color-text");
+    const priceToDecimal = parseFloat(price);
 
-      totalPrice.text((total += priceToDecimal));
-   })
+    totalPrice.text((total += priceToDecimal));
+  })
 }
 
 
-$(document).ready(function() {
-  $.get("/foods", function(foods){
+$(document).ready(function () {
+  $.get("/foods", function (foods) {
     renderMenuItems(foods);
   })
 
-  $("#shopping-submit").submit(function(event){
+  $("#shopping-submit").submit(function (event) {
     event.preventDefault();
     const itemsInCart = [];
     for (const item of this.elements) {
       const cartItem = {};
-      if(item.name === "foodId"){
+      if (item.name === "foodId") {
         cartItem.foodId = item.value;
         cartItem.quantity = 1;
         itemsInCart.push(cartItem);
@@ -109,7 +109,7 @@ $(document).ready(function() {
     $.ajax({
       type: "POST",
       url: "/orders",
-      data: {itemsInCart}
+      data: { itemsInCart }
     }).done((response) => {
       setTimeout(() => {
         window.location.replace("/");
@@ -124,7 +124,7 @@ $(document).ready(function() {
   });
 
 
-  $("#search_form").click(function(){
+  $("#search_form").click(function () {
     const query = document.getElementById('search').value;
     window.find(query);
     return true;
