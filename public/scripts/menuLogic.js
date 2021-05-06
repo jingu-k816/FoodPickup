@@ -1,4 +1,4 @@
-const createMenuItem = function(foodObj) {
+const createMenuItem = function (foodObj) {
   const image = foodObj.photo_url
   const name = foodObj.name
   const price = foodObj.price
@@ -13,25 +13,25 @@ const createMenuItem = function(foodObj) {
           <img class = "item-img" src = "${image}"/>
         </div>
     </article>`)
-    return menuItem;
+  return menuItem;
 }
 
-const renderMenuItems = function(items) {
+const renderMenuItems = function (items) {
   for (let item of items) {
-    if (item.category === 'standard pizza'){
-    $('#all-std-items').prepend(createMenuItem(item))
+    if (item.category === 'standard pizza') {
+      $('#all-std-items').prepend(createMenuItem(item))
     }
-    if (item.category === 'signature pizza'){
-    $('#all-sig-items').prepend(createMenuItem(item))
+    if (item.category === 'signature pizza') {
+      $('#all-sig-items').prepend(createMenuItem(item))
     }
-    if (item.category === 'sides'){
-    $('#all-side-items').prepend(createMenuItem(item))
+    if (item.category === 'sides') {
+      $('#all-side-items').prepend(createMenuItem(item))
     }
-    if (item.category === 'drink'){
-    $('#all-drink-items').prepend(createMenuItem(item))
+    if (item.category === 'drink') {
+      $('#all-drink-items').prepend(createMenuItem(item))
     }
-    if (item.category === 'dessert'){
-    $('#all-dessert-items').prepend(createMenuItem(item))
+    if (item.category === 'dessert') {
+      $('#all-dessert-items').prepend(createMenuItem(item))
     }
   }
 
@@ -63,6 +63,7 @@ const renderMenuItems = function(items) {
       </li>
       `);
 
+<<<<<<< HEAD
       $(menuItem.children()[5]).click(function() {
         numItems -=1;
         navIndex--;
@@ -81,26 +82,46 @@ const renderMenuItems = function(items) {
           $('.badge').css("background-color", 'transparent');
         }, 1000);
       }
+=======
+    $(menuItem.children()[5]).click(function () {
+      numItems -= 1;
+      navIndex--;
+      total -= price;
+      $("#total-price")[0].innerText = total;
+      navCartNumber.text(navIndex);
+      cartNumber.text(numItems);
+      $(this).parent().remove();
+    })
 
-      const totalPrice = $(this).parent().parent().parent().parent().parent().find(".main-color-text");
-      const priceToDecimal = parseFloat(price);
+    $('.shopping-cart-items').prepend(menuItem);
+    if (cartNumber.val() !== 0) {
+      $('.badge').css("background-color", 'red');
+>>>>>>> master
 
-      totalPrice.text((total += priceToDecimal));
-   })
+      setTimeout(function () {
+        $('.badge').css("background-color", '#6394F8');
+      }, 1000);
+    }
+
+    const totalPrice = $(this).parent().parent().parent().parent().parent().find(".main-color-text");
+    const priceToDecimal = parseFloat(price);
+
+    totalPrice.text((total += priceToDecimal));
+  })
 }
 
 
-$(document).ready(function() {
-  $.get("/foods", function(foods){
+$(document).ready(function () {
+  $.get("/foods", function (foods) {
     renderMenuItems(foods);
   })
 
-  $("#shopping-submit").submit(function(event){
+  $("#shopping-submit").submit(function (event) {
     event.preventDefault();
     const itemsInCart = [];
     for (const item of this.elements) {
       const cartItem = {};
-      if(item.name === "foodId"){
+      if (item.name === "foodId") {
         cartItem.foodId = item.value;
         cartItem.quantity = 1;
         itemsInCart.push(cartItem);
@@ -111,7 +132,7 @@ $(document).ready(function() {
     $.ajax({
       type: "POST",
       url: "/orders",
-      data: {itemsInCart}
+      data: { itemsInCart }
     }).done((response) => {
       setTimeout(() => {
         window.location.replace("/");
@@ -122,7 +143,7 @@ $(document).ready(function() {
   });
 
 
-  $("#search_form").click(function(){
+  $("#search_form").click(function () {
     const query = document.getElementById('search').value;
     window.find(query);
     return true;

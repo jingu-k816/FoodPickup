@@ -50,7 +50,7 @@ const createHistoryItem = function(historyObj) {
    <span>Quantity`
    const quantityList = createQuantityList(historyObj.items)
    const span2 = `</span>
-   <span>Price`
+   <span>Price/Each`
    const priceList = createPriceList(historyObj.items)
    const span3 =`</span>
     </footer>
@@ -59,8 +59,6 @@ const createHistoryItem = function(historyObj) {
 
     return $(orderList+foodList+span1+quantityList+span2+priceList+span3)
 }
-
-
 
 
 const renderOrderItems = function(items) {
@@ -91,3 +89,5 @@ $(document).ready(function() {
 
 
 });
+
+

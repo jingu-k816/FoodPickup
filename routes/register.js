@@ -22,10 +22,13 @@ module.exports = (db) => {
     VALUES ($1, $2, $3) RETURNING *;
   `;
     const values = [user.name, user.phone_number, user.password];
-    req.session.userName = user.name;
-      db
-        .query(querySting, values)
-        .then(res.redirect("/"))
+    db
+    .query(querySting, values)
+    .then((result) => {
+    req.session.userName = result.rows[0].name;
+    req.session.userId = result.rows[0].id
+    res.redirect("/")
+  })
         .catch(err => {
           res.status(500).json({ error: err.message });
     })
