@@ -63,7 +63,6 @@ const renderMenuItems = function (items) {
       </li>
       `);
 
-<<<<<<< HEAD
       $(menuItem.children()[5]).click(function() {
         numItems -=1;
         navIndex--;
@@ -82,21 +81,6 @@ const renderMenuItems = function (items) {
           $('.badge').css("background-color", 'transparent');
         }, 1000);
       }
-=======
-    $(menuItem.children()[5]).click(function () {
-      numItems -= 1;
-      navIndex--;
-      total -= price;
-      $("#total-price")[0].innerText = total;
-      navCartNumber.text(navIndex);
-      cartNumber.text(numItems);
-      $(this).parent().remove();
-    })
-
-    $('.shopping-cart-items').prepend(menuItem);
-    if (cartNumber.val() !== 0) {
-      $('.badge').css("background-color", 'red');
->>>>>>> master
 
       setTimeout(function () {
         $('.badge').css("background-color", '#6394F8');
