@@ -13,7 +13,11 @@ nav {
   position: fixed;
   top: 0;
 }
-
+nav a {
+  color: white;
+  border: none;
+  text-decoration: none;
+}
 nav .navLinks a{
  margin-left: 1.5em;
  color: white;

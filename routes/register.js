@@ -17,12 +17,12 @@ module.exports = (db) => {
   });
   router.post('/', (req, res) => {
     const user = req.body;
-    console.log('this is reqbody', req.body)
     const querySting = `
     INSERT INTO users(name, phone_number, password)
     VALUES ($1, $2, $3) RETURNING *;
   `;
     const values = [user.name, user.phone_number, user.password];
+    req.session.userName = user.name;
       db
         .query(querySting, values)
         .then(res.redirect("/"))
@@ -32,11 +32,3 @@ module.exports = (db) => {
   });
   return router;
 };
-
-
-// db.addUser(user)
-
-// user.password = bcrypt.hashSync(user.password, 12);  //implement once bycript is a dependancy
-
-
-
