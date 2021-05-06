@@ -1,7 +1,9 @@
 .page {
   background-color: black;
   padding-bottom: 5em;
+  width: 100%;
 }
+
 .item-name {
   font-size: larger;
   font-weight: bold;
@@ -22,22 +24,19 @@
 .menu-container{
   margin-top: 2%;
   margin-right: 1%;
-  border-radius: 25px;
+  border-radius: 5px;
   width: 20em;
   height: 15em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  // background-size: 650px 600px;
   background-image: url("/menu_photos/background.png");
   background-size: cover;
-
-  // --------------------------------------------------------------------------
 }
 
-// .menu-container:hover {
-//   box-shadow: 5px 5px lightslategray
-// }
+.item-img:hover{
+  transform: scale(1.25);
+}
 
 .all-category-items {
   display: flex;
@@ -69,8 +68,7 @@
 
 .toc {
   border-radius: 5px;
-  // border: 3px dotted black;
-  background-color: #0d0d0d;
+  background-color: transparent;
   padding: 1em;
   margin-top: 1em;
   display: flex;
@@ -79,9 +77,7 @@
   top: 75vh;
   height: 220px;
   width: 15vw;
-  // z-index: 1;
-  // position: fixed;
-  // background-color: green;
+
   p2 {
     color: #bfbfbf;
     font-size: 1.2em;
@@ -136,8 +132,37 @@
 .order-history-link {
   color: #bfbfbf;
   text-decoration: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  margin-left: 90%;
   margin-right: 10%;
+  width: 100px;
+}
+
+.toc-fixed {
+  top: 100px;
+  position: fixed;
+  z-index: 100;
+}
+
+.order-history-link:hover {
+  box-shadow: 0 0.5em 0.5em -0.4em;
+  background-color: transparent;
+  color: #bfbfbf;
+}
+.toc a {
+  width: 124px;
+}
+
+.toc a:hover {
+  align-self: center;
+}
+
+.search-button {
+  background-color: #990000;
+  border-radius: 3px;
+  color: white;
+  border: none;
+}
+
+.search-button:hover{
+  transform: scale(1.07);
 }

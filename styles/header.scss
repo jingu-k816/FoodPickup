@@ -1,11 +1,13 @@
 header {
   background: rgb(0, 0, 0);
   overflow: hidden;
+  width: 100%;
+  z-index: 0;
+  max-height: 70vh;
 }
 .img-fluid {
   object-fit: cover;
   width: 100%;
-  max-height: 70vh;
   opacity: 0.5;
 }
 
@@ -32,10 +34,19 @@ header {
   opacity: 0;
   transition: .5s ease;
   background-color: #000000;
-  display: none;
 }
 
 header:hover .overlay {
   opacity: 0.8;
 }
 
+.header-text h2{
+  margin-bottom: 30px;
+}
+.header-text h4{
+  margin-bottom: 30px;
+}
+
+.header-text img{
+  width: 30em;
+}

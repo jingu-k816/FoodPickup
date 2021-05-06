@@ -70,13 +70,14 @@ module.exports = (db) => {
         .catch(err => console.error(err.message));
       }
 
-      // client.messages
-      // .create({body: `Hi there! Your order has been submitted! We will send you an update once the order has been accpeted by the restaurant.`, from: '+12343198009', to: '+447782322575'})
-      // .then(message => console.log(message.sid));
+      client.messages
+      .create({body: `Hi there! Your order has been submitted! We will send you an update once the order has been accpeted by the restaurant.`, from: '+12343198009', to: '+447782322575'})
+      .then(message => console.log(message.sid));
 
-      // client.messages
-      // .create({body: `Hi there! Your order has been submitted! We will send you an update once the order has been accpeted by the restaurant.`, from: '+12343198009', to: '+16472954679'})
-      // .then(message => console.log(message.sid));
+      client.messages
+      .create({body: `From restaurant`, from: '+12343198009', to: '+447782322575'})
+      .then(message => console.log(message.sid));
+
       res.redirect("/");
     })
     .catch(err => {

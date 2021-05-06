@@ -2,15 +2,15 @@ const createMenuItem = function(foodObj) {
   const image = foodObj.photo_url
   const name = foodObj.name
   const price = foodObj.price
-  const desc = foodObj.description
+  const ing = foodObj.ingredients
   const foodId = foodObj.id
   const menuItem = $(`<article class = "menu-container" data-id="${foodId}">
-      <img class = "item-img" src = "${image}"/>
         <div class = "item-text">
           <div class = "item-name">${name}</div>
           <div class = "price">${price}</div>
-          <div class = "description">Description: ${desc}
+          <div class = "description">Ingredients: ${ing}
           </div>
+          <img class = "item-img" src = "${image}"/>
         </div>
     </article>`)
     return menuItem;
@@ -46,7 +46,9 @@ const renderMenuItems = function(items) {
       navCartNumber.text(navIndex);
       cartNumber.text(numItems);
 
-      const image = $(this).children(".item-img").attr('src');
+      const image =  $(this).children().children()[3].src;
+
+      console.log("WHAT IS IMAGE SOURCE :", image);
       const name = $(this).children().children()[0].innerText;
       const price = $(this).children().children()[1].innerText;
       const foodId = this.getAttribute('data-id');
@@ -73,10 +75,10 @@ const renderMenuItems = function(items) {
 
       $('.shopping-cart-items').prepend(menuItem);
       if (cartNumber.val() !== 0){
-        $('.badge').css("background-color", 'red');
+        $('.badge').css("background-color", '#330000');
 
         setTimeout(function() {
-          $('.badge').css("background-color", '#6394F8');
+          $('.badge').css("background-color", 'transparent');
         }, 1000);
       }
 
@@ -113,11 +115,7 @@ $(document).ready(function() {
     }).done((response) => {
       setTimeout(() => {
         window.location.replace("/");
-        //alert("Order submitted!");
       }, 1);
-      //$.redirect("/", response);
-      //return response;
-      // window.location.href = '/'
     }).fail((err) => {
       console.log(err);
     });
@@ -132,22 +130,34 @@ $(document).ready(function() {
   const target = $('.toc')
   target.after('<div class="affix" id="affix"></div>')
 
-  const affix = $('.affix')
-  affix.append(target.clone(true))
+  // const affix = $('.affix')
+  // affix.append(target.clone(true))
 
-  // Show affix on scroll.
-  const element = document.getElementById('affix')
-  if (element !== null) {
-    const position = target.position()
-    window.addEventListener('scroll', function () {
-      const height = $(window).scrollTop()
-      if (height > position.top - 120) {
-        target.css('visibility', 'hidden')
-        affix.css('display', 'block')
-      } else {
-        affix.css('display', 'none')
-        target.css('visibility', 'visible')
-      }
-    })
-  }
+  // // Show affix on scroll.
+  // const element = document.getElementById('affix')
+  // if (element !== null) {
+  //   const position = target.position()
+  //   window.addEventListener('scroll', function () {
+  //     const height = $(window).scrollTop()
+  //     if (height > position.top - 120) {
+  //       target.css('visibility', 'hidden')
+  //       affix.css('display', 'block')
+  //     } else {
+  //       affix.css('display', 'none')
+  //       target.css('visibility', 'visible')
+  //     }
+  //   })
+  // }
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > window.innerHeight * 0.65) {
+      $('.toc').addClass('toc-fixed');
+      $('nav').addClass('nav-change-color');
+      $('#shopping-submit').addClass('toc-fixed');
+    }
+    if($(window).scrollTop() < window.innerHeight * 0.65 +1){
+      $('.toc').removeClass('toc-fixed');
+      $('nav').removeClass('nav-change-color');
+      $('#shopping-submit').removeClass('toc-fixed');
+    }
+  })
 })
