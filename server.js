@@ -46,7 +46,6 @@ const registerRoutes = require("./routes/register");
 const restaurantRoutes = require("./routes/orders");
 const historyRoutes = require("./routes/history");
 const logOutRoutes = require("./routes/logout")
-const userRoutes = require("./routes/users")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -58,7 +57,6 @@ app.use("/register", registerRoutes(db));
 app.use("/orders", restaurantRoutes(db));
 app.use("/history", historyRoutes(db));
 app.use("/logout", logOutRoutes(db));
-app.use("/users", userRoutes(db));
 app.use(function(req, res, next) {
   if(req.session.userName){
     res.locals.users = req.session.userName;
