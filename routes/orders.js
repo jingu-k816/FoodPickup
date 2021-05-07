@@ -71,22 +71,22 @@ module.exports = (db) => {
         .catch(err => console.error(err.message));
       }
 
-      client.messages
-      .create({body: `Hi there! Your order has been submitted! We will send you an update once the order has been accpeted by the restaurant.`,
-               from: '+12343198009',
-               to: '+447782322575'})
-      .then(message => console.log(message.sid));
+      // client.messages
+      // .create({body: `Hi there! Your order has been submitted! We will send you an update once the order has been accpeted by the restaurant.`,
+      //          from: '+12343198009',
+      //          to: '+1911'})
+      // .then(message => console.log(message.sid));
 
 
-      const twilioMessage = JSON.stringify(dataForOrderHistory.itemsInCart).split(/[ .;?!~,`"&|()<>{}\[\]\r\n/\\]+/).join('').split(':').join(': ').split('q').join(' q').split('f').join('\nf');
-      client.messages
-      .create({body: `New Order!
-      Order number : ${orderId}
-      --------------------------
-      Order: ${twilioMessage}`,
-               from: '+12343198009',
-               to: '+447782322575'})
-      .then(message => console.log(message.sid));
+      // const twilioMessage = JSON.stringify(dataForOrderHistory.itemsInCart).split(/[ .;?!~,`"&|()<>{}\[\]\r\n/\\]+/).join('').split(':').join(': ').split('q').join(' q').split('f').join('\nf');
+      // client.messages
+      // .create({body: `New Order!
+      // Order number : ${orderId}
+      // --------------------------
+      // Order: ${twilioMessage}`,
+      //          from: '+12343198009',
+      //          to: '+1911'})
+      // .then(message => console.log(message.sid));
 
       res.redirect("/");
     })
@@ -108,16 +108,16 @@ module.exports = (db) => {
     const queryParam = [req.params.id];
     if (req.query.status === "incomplete") {
       const processingTime = req.body.processTime;
-      client.messages
-      .create({body: `Hi there! Your food will be ready in ${processingTime} minutes.`, from: '+12343198009', to: '+447782322575'})
-      .then(message => console.log(message.sid));
+      // client.messages
+      // .create({body: `Hi there! Your food will be ready in ${processingTime} minutes.`, from: '+12343198009', to: '+1911'})
+      // .then(message => console.log(message.sid));
     }
 
     if (req.query.status === "complete"){
       queryUpdate += ', is_completed = true '
-      client.messages
-      .create({body: 'Hi there Your food is ready Please come and pick it up!', from: '+12343198009', to: '+447782322575'})
-      .then(message => console.log(message.sid));
+      // client.messages
+      // .create({body: 'Hi there Your food is ready Please come and pick it up!', from: '+12343198009', to: '+1911'})
+      // .then(message => console.log(message.sid));
     }
 
     if (req.query.status === "pickedUp") {
