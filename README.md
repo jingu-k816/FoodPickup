@@ -17,6 +17,10 @@ Welcome to Pizza Tent, a full-stack resturant web app inspired by Pizza Hut. Thi
 
 ## Screenshots
 
+![Main Menu and Cart](https://github.com/jingu-k816/FoodPickup/blob/master/AppScreens/Screenshot%20from%202021-05-07%2009-12-36.png?raw=true "Main Menu and Cart")
+![Order History](https://github.com/jingu-k816/FoodPickup/blob/master/AppScreens/Screenshot%20from%202021-05-07%2009-14-03.png?raw=true "Order History")
+![Login Page](https://github.com/jingu-k816/FoodPickup/blob/master/AppScreens/Screenshot%20from%202021-05-07%2009-14-48.png?raw=true "Login Page")
+![Orders Page](https://github.com/jingu-k816/FoodPickup/blob/master/AppScreens/Screenshot%20from%202021-05-07%2009-15-55.png?raw=true "Orders Page")
 
 ## Dependencies
 
