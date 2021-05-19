@@ -9,6 +9,8 @@ Welcome to Pizza Tent, a full-stack resturant web app inspired by Pizza Hut. Thi
 Please visit this link to see the site and how it works!
 https://pizza-tent.herokuapp.com/
 
+(The site works best with laptops and desktops and was not built with responsive web design)
+
 ## Features
 
 1. Functional menu display complete with a table of contents, categories and a search feature.
