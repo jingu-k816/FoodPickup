@@ -3,8 +3,11 @@ Pizza Tent
 
 ## Welcome
 
-Welcome to Pizza Tent, a full-stack resturant web app inspired by Pizza Hut. This app was created using PostgreSQL Express, Node.js, SCSS, HTML and the Twilio API.
+Welcome to Pizza Tent, a full-stack resturant web app inspired by Pizza Hut. This app was created using PostgreSQL Express, Node.js, SCSS, HTML and the Twilio API. 
 
+## Host
+Please visit this link to see the site and how it works!
+https://pizza-tent.herokuapp.com/
 
 ## Features
 
