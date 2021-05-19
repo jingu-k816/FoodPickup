@@ -39,3 +39,4 @@ Welcome to Pizza Tent, a full-stack resturant web app inspired by Pizza Hut. Thi
 ## Getting Started
 
 -run "npm install" in the command line to download all the dependencies
+-enter "npm start" or "npm run local" in the command line to start the app
